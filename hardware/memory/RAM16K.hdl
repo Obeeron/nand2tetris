@@ -1,0 +1,21 @@
+/**
+ * Memory of 16K registers, each 16 bit-wide. Out holds the value
+ * stored at the memory location specified by address. If load==1, then 
+ * the in value is loaded into the memory location specified by address 
+ * (the loaded value will be emitted to out from the next time step onward).
+ */
+
+CHIP RAM16K {
+    IN in[16], load, address[14];
+    OUT out[16];
+
+    PARTS:
+    DMux4Way(in=load, sel=address[12..13], a=loadR1, b=loadR2, c=loadR3, d=loadR4);
+
+    RAM4K(in=in, load=loadR1, address=address[0..11], out=outR1);
+    RAM4K(in=in, load=loadR2, address=address[0..11], out=outR2);
+    RAM4K(in=in, load=loadR3, address=address[0..11], out=outR3);
+    RAM4K(in=in, load=loadR4, address=address[0..11], out=outR4);
+
+    Mux4Way16(a=outR1, b=outR2, c=outR3, d=outR4, sel=address[12..13], out=out);
+}
