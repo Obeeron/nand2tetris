@@ -1,0 +1,12 @@
+[package]
+name = "hardware_emulator"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+pixels = "0.10.0"
+winit = "0.27.5"
+game-loop = {version = "0.10.0", features = ["winit"]}
+clap = {version = "4.0.19", features = ["derive"]}
