@@ -2,7 +2,7 @@ use pixels::Pixels;
 use crate::{Result, Memory};
 
 pub struct Screen {
-    pixels: Pixels,
+    pub pixels: Pixels,
 }
 
 impl Screen {

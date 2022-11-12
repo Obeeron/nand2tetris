@@ -58,7 +58,13 @@ impl Emulator {
                     }
                 }
             }
-            Event::WindowEvent { window_id: _, event: WindowEvent::CloseRequested } => g.exit(),
+            Event::WindowEvent { window_id: _, event} => match event {
+                WindowEvent::CloseRequested => g.exit(),
+                WindowEvent::Resized(size) => {
+                    g.game.screen.pixels.resize_surface(size.width, size.height);
+                }
+                _ => {}
+            },
             _ => {}
         }
         Ok(())
