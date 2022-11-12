@@ -7,7 +7,7 @@ mod error;
 use assembler::Assembler;
 
 #[derive(Parser)]
-#[command(author = "Obeeron", version = "1.0")]
+#[command(author = "Obeeron", version = env!("CARGO_PKG_VERSION"))]
 struct Cli {
     input_file: String,
     #[clap(short, long, help = "Compiled output file")]
