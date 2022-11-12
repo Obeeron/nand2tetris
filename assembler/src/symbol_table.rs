@@ -46,8 +46,8 @@ impl SymbolTable {
     }
 
     // Add a symbol to the symbol table
-    pub fn add_label(&mut self, label: &str, line_num: u16) {
-        self.symbols.insert(label.to_string(), line_num);
+    pub fn add_label(&mut self, label: &str, rom_address: u16) {
+        self.symbols.insert(label.to_string(), rom_address);
     }
 
     // Add a variable to the symbol table and increment the RAM address
