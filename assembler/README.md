@@ -1,7 +1,18 @@
-# HackAssembler
-Assembler for the Hack 16-bit computer architecture  
+# HACK assembler
 
-### usage:
+The HACK assembler is a command-line application written in Rust used to compile HACK assembly code to binary.
+
+## Building
+
+The assembler can be built with the following command:
+
+```bash
+cargo build --release
+```
+
+The executable will be located at `target/release/assembler`.
+
+## Usage:
 
 ```
 Usage: assembler.exe [OPTIONS] <INPUT_FILE>
@@ -16,3 +27,13 @@ Options:
   -h, --help              Print help information
   -V, --version           Print version information
 ```
+
+## Example
+
+The Pong.asm file, part of the nand2tetris project can be compiled with the following command:
+
+```bash
+assembler Pong.asm
+```
+
+The output will be saved to `Pong.hack` by default.
